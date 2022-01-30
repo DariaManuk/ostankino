@@ -1,5 +1,6 @@
 import requests
 from distance import lonlat_distance as dis
+from math import sqrt
 
 
 def koord(name):
@@ -13,8 +14,7 @@ def koord(name):
         return toponym
 
 
-print('Введите адрес дома')
-A = koord(input())
-print('Введите адрес школы')
-B = koord(input())
-print(dis(A, B), "м")
+print('Введите адрес')
+L = dis(koord('Останкинская башня, Москва'), koord(input()))
+h_2 = (L / 1000 / 3.6 - sqrt(525)) ** 2
+print("Высота приёмной антенны =", h_2, "м")
